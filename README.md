@@ -1,2 +1,2 @@
 # Data607Bridge
-Bridge Data Download &amp;Subset 
+Bridge Data Download & Subset 
