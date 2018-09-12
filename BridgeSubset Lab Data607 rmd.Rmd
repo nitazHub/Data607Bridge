@@ -1,0 +1,37 @@
+---
+title: "Bridge Data Subset Lab Data 607"
+author: "Vanita Hackworth"
+date: "September 12, 2018"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Copy Bridge Data url to url variable for use in read.csv command:
+```{r url}
+bridge_url <- "https://archive.ics.uci.edu/ml/machine-learning-databases/bridges/bridges.data.version2"
+```
+
+Create column names vector to use in read.csv command:
+
+```{r columns}
+bridge_col_names <- c("ID", "River", "Location", "Erected", "Purpose", "Length", 
+                      "Lanes", "Clear", "T-or-D", "Material", "Span", "Rel-L",                          "Type")
+```
+
+Create Bridge DataFrame by using read.csv to read bridge data and display 6 rows using head function:
+```{r}
+bridge_df <- read.csv(bridge_url, header = FALSE, sep = ",", col.names = bridge_col_names)
+head(bridge_df)
+```
+
+Create a subset of bridge data dsplaying selected columns and display 6 rows using head function:
+```{r}
+sub_bridge_df <- subset(bridge_df, select = c("Purpose", "Length", "Lanes", "Type"))
+head(sub_bridge_df)
+```
+
